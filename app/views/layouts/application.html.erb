@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Peddle</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "LED Exhibit Lighting" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+  <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">LED Exhibit Lighting</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon">
+          <a href="#"><span>menu</span></a>
+        </li>
+      </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+        <li>
+          <%= link_to "Login", new_model_session_path, :class => 'navbar-link' %>
+        </li>
+      <li class="divider"></li>
+      <li>
+        <li><%= link_to "Sign up", new_model_registration_path, :class => 'navbar-link' %></li>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <li><%= link_to "Logout", destroy_model_session_path, method: :delete, :class => 'navbar-link' %></li>
+      </li>
+    </ul>
+  </section>
+
+   <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#">Products</a>
+        <ul class="dropdown">
+          <li><a href="#">Display Armlights</a></li>
+          <li><a href="#">Telescopic Lightstands </a></li>
+          <li><a href="#">System Tracklights</a></li>
+          <!-- <li class="active"><a href="#">Active link in dropdown</a></li> -->
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

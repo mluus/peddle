@@ -1,0 +1,38 @@
+class ProfileController < ApplicationController
+
+  before_action :authenticate_user!, :except => [:create]
+
+  # def show
+
+  #   @profile = current_user.profile
+
+  #   if profile
+  #     render :profile
+  #   else
+  #     render :new
+  #   end
+  # end
+
+  # def user_data
+  # end
+
+#   def create
+
+#     profile = Profile.new
+#     profile.first_name = params[:first_name]
+#     profile.last_name = params[:last_name]
+#     profile.email = params[:email]
+#     profile.house_number = params[:house_number]
+#     profile.street_name = params[:street_name]
+#     profile.city = params[:city]
+#     profile.save
+
+#     user = User.find(params[:user_id])
+#     user.profile = profile
+#     @profile = profile
+
+
+#     render :profile
+
+#   end
+# end
